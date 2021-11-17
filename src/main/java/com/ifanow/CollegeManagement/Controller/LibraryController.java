@@ -12,19 +12,20 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
+
 public class LibraryController {
     @Autowired
     LibraryServices libraryServices;
     List<LibraryModel> libraryDataList = new ArrayList<>();
 
-
+    @CrossOrigin("http://localhost:4200")
     @PostMapping("/storeLibraryDetails")
     public int saveLibraryDetails(@RequestParam int studentId, @RequestParam String studentName, @RequestParam String bookName, @RequestParam String issueDate, @RequestParam String returnDate, @RequestParam int numberOfBook, @RequestParam String librarian){
         int storeLibraryDetail=0;
         storeLibraryDetail = libraryServices.saveLibraryDetails(studentId,studentName,bookName,issueDate,returnDate,numberOfBook,librarian);
         return storeLibraryDetail;
     }
-
+    @CrossOrigin("http://localhost:4200")
     @GetMapping("/showLibraryDetails")
     public String showLibrayDetails()
     {
@@ -33,14 +34,14 @@ public class LibraryController {
         System.out.println(libraryjsonObj);
         return libraryjsonObj;
     }
-
+    @CrossOrigin("http://localhost:4200")
     @PutMapping("/updateLibraryDetails")
     public int updateLibraryDetails(@RequestParam int srNo,@RequestParam String bookName){
         int updatedRow = 0;
         updatedRow = libraryServices.updateLibraryDetail(srNo,bookName);
         return updatedRow;
     }
-
+    @CrossOrigin("http://localhost:4200")
     @DeleteMapping("/deleteLibraryDetails")
     public int deleteLibraryDetail(@RequestParam int srNo) throws IOException {
         //int studentId=3;
@@ -48,6 +49,7 @@ public class LibraryController {
         deletedRow=libraryServices.deleteLibraryDetail(srNo);
         return deletedRow;
     }
+    @CrossOrigin("http://localhost:4200")
     @GetMapping("/totalLibraryDetails")
     public int totalLibrrayDetail(){
         int count = 0;
