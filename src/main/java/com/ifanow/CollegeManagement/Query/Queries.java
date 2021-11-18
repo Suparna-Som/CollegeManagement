@@ -24,4 +24,12 @@ public class Queries {
     public static final String insertQueryDepartment= "INSERT INTO department(departmentName,departmentHead,teachersAll) VALUES ((?),(?),(?))";
     public static final String deleteQueryDepartment="delete from department where departmentId=?";
     public static final String totalcountdepartment="select count(*) as total from department";
+
+    ///-----------------------------Attendence Table------------------------------------------------
+    public static String insertAttendence="INSERT INTO attendence(`studentId`,`studentName`, `department`,`loginTime`,`logoutTime`,`attendancePercentage`)VALUES((?),(?),(?),(?),(?),(?));";
+    public static String selectAttendence="SELECT * FROM attendence;";
+    public static String deleteAttendence="DELETE FROM `attendence`WHERE studentId=(?);";
+    public static String updateAttendence="UPDATE `attendence`SET`studentName` = (?) ,`department` = (?),`loginTime` = (?),`logoutTime` = (?) WHERE `srNo`= (?);";
+    public static String percentageAttendenceQuery="SELECT studentName FROM `attendence`WHERE studentId= ?;";
+
 }

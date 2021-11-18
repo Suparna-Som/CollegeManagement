@@ -7,8 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+
 
 @RestController
 @RequestMapping("/api")
@@ -16,7 +15,7 @@ import java.util.List;
 public class LibraryController {
     @Autowired
     LibraryServices libraryServices;
-    List<LibraryModel> libraryDataList = new ArrayList<>();
+
 
     @CrossOrigin("http://localhost:4200")
     @PostMapping("/storeLibraryDetails")
